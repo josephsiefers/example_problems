@@ -1,0 +1,11 @@
+Example practice problems:
+
+1. BigInt - create an implementation of addition of large values based on strings
+
+2. lca.rb - create a least common ancestor method for BST
+
+3. Tic-tac-toe - create a method to determine the victor (or tie) in tic-tac-toe
+
+4. Boggle - breadth first search / depth first search
+
+5. k step array swap problem
