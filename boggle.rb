@@ -33,7 +33,7 @@ class Boggle
 
 	def initialize(board)
 		@board = board
-		@dictionary = ['a', 'an', 'ban', 'man', 'bank']
+		@dictionary = {"a" => true, "an" => true, "ban" => true, "man" => true, "bank" => true}
 	end
 
 	def find_all_words
@@ -57,7 +57,7 @@ class Boggle
 		visited = [*visited, [i, j]]
 		new_word = "#{word}#{letter}"
 
-		result = @dictionary.include?(new_word) ? new_word : nil
+		result = @dictionary[new_word] ? new_word : nil
 
 		depth=depth+1
 		#depth_indicator = depth.times.collect { '>' }.join('')
