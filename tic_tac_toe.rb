@@ -12,13 +12,14 @@ class TicTacToe
 		return victor unless victor.nil?
 
 		#diagonal victory
-		victor = check_diagonal(0,1,2)
+		range = *(0..2)
+		[range, range.reverse].each do |series|
+			victor = check_diagonal(*series)
 
-		return victor unless victor.nil?
+			return victor unless victor.nil?
+		end
 
-		victor = check_diagonal(2,1,0)
-
-		return victor unless victor.nil?
+		return nil
 	end
 
 	def check_rows(rows)
@@ -68,8 +69,8 @@ def it_finds_the_top_left_to_bottom_right_diagonal_victory
 
 	tic_tac_toe = TicTacToe.new(board)
 
-	assert(tic_tac_toe.find_winner == "X", "it_finds_the_bottom_left_to_top_right_diagonal_victory: expected X")
-	puts "Passed: it_finds_the_bottom_left_to_top_right_diagonal_victory"
+	assert(tic_tac_toe.find_winner == "X", "it_finds_the_top_left_to_bottom_right_diagonal_victory: expected X")
+	puts "Passed: it_finds_the_top_left_to_bottom_right_diagonal_victory"
 end
 
 def it_finds_the_bottom_left_to_top_right_diagonal_victory
@@ -92,7 +93,7 @@ def it_returns_nil_when_no_victory
 
 	tic_tac_toe = TicTacToe.new(board)
 
-	assert(tic_tac_toe.find_winner.nil?, "it_finds_a_column_victory: expected nil")
+	assert(tic_tac_toe.find_winner.nil?, "it_returns_nil_when_no_victory: expected nil")
 	puts "Passed: it_returns_nil_when_no_victory"
 end
 
@@ -104,7 +105,7 @@ def it_finds_an_early_victory
 
 	tic_tac_toe = TicTacToe.new(board)
 
-	assert(tic_tac_toe.find_winner == "O", "it_finds_a_column_victory: expected O")
+	assert(tic_tac_toe.find_winner == "O", "it_returns_nil_when_no_victory: expected O")
 	puts "Passed: it_finds_an_early_victory"
 end
 
