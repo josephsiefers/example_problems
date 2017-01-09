@@ -12,15 +12,13 @@ def insertion_sort_no_swap(ar)
 	(ar.length-1).downto(1) do |i|
 		if (val < ar[i-1])
 			ar[i] = ar[i-1]
-			puts ar.join(' ')
 		else
 			ar[i] = val
-			puts ar.join(' ')
 			break
 		end
 	end
 	#when we don't swap, we need to check at the very end...
-	((ar[0] = val) && (puts ar.join(' '))) if val < ar[0] 
+	(ar[0] = val) if val < ar[0] 
 
 	ar
 end
